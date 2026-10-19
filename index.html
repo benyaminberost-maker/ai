@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090b12">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Berost AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-logo">B<span>.</span></div>
+        <div class="brand-copy">
+          <div class="brand-name">BEROST AI</div>
+          <div class="brand-caption">INTELLIGENCE PLATFORM</div>
+        </div>
+        <button class="icon-btn sidebar-close" id="closeSidebar" aria-label="بستن">×</button>
+      </div>
+
+      <button class="new-chat-btn" id="newChat">
+        <span class="plus-icon">＋</span>
+        <span data-fa="گفت‌وگوی جدید" data-en="New conversation">گفت‌وگوی جدید</span>
+      </button>
+
+      <div class="sidebar-label" data-fa="فضای کاری" data-en="WORKSPACE">فضای کاری</div>
+      <button class="nav-item active" id="homeButton">
+        <span class="nav-icon">◈</span>
+        <span data-fa="دستیار هوشمند" data-en="AI Assistant">دستیار هوشمند</span>
+      </button>
+      <button class="nav-item" id="historyButton">
+        <span class="nav-icon">◷</span>
+        <span data-fa="تاریخچه گفتگوها" data-en="Chat history">تاریخچه گفتگوها</span>
+      </button>
+
+      <div class="history-heading">
+        <span data-fa="گفتگوهای اخیر" data-en="RECENT CHATS">گفتگوهای اخیر</span>
+        <span class="history-count" id="historyCount">0</span>
+      </div>
+      <div class="history-list" id="historyList"></div>
+
+      <div class="sidebar-bottom">
+        <div class="plan-card">
+          <div class="plan-icon">✦</div>
+          <div class="plan-copy">
+            <strong>Berost AI</strong>
+            <span data-fa="آماده برای ایده‌های بزرگ" data-en="Ready for big ideas">آماده برای ایده‌های بزرگ</span>
+          </div>
+          <span class="online-dot"></span>
+        </div>
+
+        <div class="profile">
+          <div class="avatar" id="userAvatar">B</div>
+          <div class="profile-info">
+            <strong id="userName">کاربر</strong>
+            <span data-fa="فضای شخصی" data-en="Personal workspace">فضای شخصی</span>
+          </div>
+          <button class="icon-btn" id="renameButton" aria-label="تغییر نام">⚙</button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn menu-toggle" id="openSidebar" aria-label="باز کردن منو">☰</button>
+          <div class="breadcrumb">
+            <span class="breadcrumb-muted">Berost</span>
+            <span class="breadcrumb-separator">/</span>
+            <strong data-fa="دستیار هوشمند" data-en="AI Assistant">دستیار هوشمند</strong>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="status-pill">
+            <span class="online-dot"></span>
+            <span data-fa="آماده پاسخ‌گویی" data-en="Ready">آماده پاسخ‌گویی</span>
+          </div>
+          <button class="icon-btn language-button" id="languageButton" aria-label="تغییر زبان">EN</button>
+          <button class="icon-btn" id="themeButton" aria-label="تغییر تم">☼</button>
+        </div>
+      </header>
+
+      <section class="chat-viewport" id="chatViewport">
+        <div class="welcome-screen" id="welcomeScreen">
+          <div class="welcome-eyebrow">
+            <span class="eyebrow-line"></span>
+            <span data-fa="نسل جدید هوش مصنوعی" data-en="NEXT-GENERATION INTELLIGENCE">نسل جدید هوش مصنوعی</span>
+            <span class="eyebrow-line"></span>
+          </div>
+
+          <div class="hero-symbol">
+            <div class="hero-orbit orbit-one"></div>
+            <div class="hero-orbit orbit-two"></div>
+            <div class="hero-orbit orbit-three"></div>
+            <div class="hero-core">B<span>.</span></div>
+            <div class="hero-spark spark-one"></div>
+            <div class="hero-spark spark-two"></div>
+            <div class="hero-spark spark-three"></div>
+          </div>
+
+          <h1 data-fa="ایده‌ات را به واقعیت تبدیل کن." data-en="Turn ideas into reality.">ایده‌ات را به واقعیت تبدیل کن.</h1>
+          <p class="welcome-description" data-fa="از پرسش‌های ساده تا پروژه‌های پیچیده؛ شروع کن و ببین چه چیزی می‌توانی بسازی." data-en="From simple questions to complex projects. Start exploring what you can create.">
+            از پرسش‌های ساده تا پروژه‌های پیچیده؛ شروع کن و ببین چه چیزی می‌توانی بسازی.
+          </p>
+
+          <div class="suggestion-grid">
+            <button class="suggestion-card" data-prompt="یک وب‌سایت مدرن و حرفه‌ای با HTML، CSS و JavaScript طراحی کن.">
+              <span class="suggestion-icon purple">⌘</span>
+              <span class="suggestion-title" data-fa="توسعه نرم‌افزار" data-en="Software development">توسعه نرم‌افزار</span>
+              <span class="suggestion-description" data-fa="کدنویسی و ساخت پروژه‌های حرفه‌ای" data-en="Build professional projects">کدنویسی و ساخت پروژه‌های حرفه‌ای</span>
+              <span class="suggestion-arrow">↗</span>
+            </button>
+
+            <button class="suggestion-card" data-prompt="یک برنامه آموزشی جذاب برای یادگیری یک موضوع جدید طراحی کن.">
+              <span class="suggestion-icon blue">◉</span>
+              <span class="suggestion-title" data-fa="یادگیری هوشمند" data-en="Smart learning">یادگیری هوشمند</span>
+              <span class="suggestion-description" data-fa="یادگیری مرحله‌به‌مرحله و مفهومی" data-en="Learn step by step">یادگیری مرحله‌به‌مرحله و مفهومی</span>
+              <span class="suggestion-arrow">↗</span>
+            </button>
+
+            <button class="suggestion-card" data-prompt="برای یک کسب‌وکار فناوری، چند ایده نوآورانه و قابل اجرا پیشنهاد بده.">
+              <span class="suggestion-icon orange">✧</span>
+              <span class="suggestion-title" data-fa="ایده‌پردازی" data-en="Creative thinking">ایده‌پردازی</span>
+              <span class="suggestion-description" data-fa="ایده‌های تازه و راهکارهای خلاقانه" data-en="Fresh ideas and solutions">ایده‌های تازه و راهکارهای خلاقانه</span>
+              <span class="suggestion-arrow">↗</span>
+            </button>
+
+            <button class="suggestion-card" data-prompt="یک برنامه روزانه هوشمند برای مدیریت بهتر زمان و کارها بساز.">
+              <span class="suggestion-icon green">◷</span>
+              <span class="suggestion-title" data-fa="بهره‌وری" data-en="Productivity">بهره‌وری</span>
+              <span class="suggestion-description" data-fa="برنامه‌ریزی دقیق‌تر و کارآمدتر" data-en="Plan smarter and work better">برنامه‌ریزی دقیق‌تر و کارآمدتر</span>
+              <span class="suggestion-arrow">↗</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="messages-container" id="messagesContainer"></div>
+
+        <div class="typing-indicator hidden" id="typingIndicator">
+          <div class="assistant-avatar">B<span>.</span></div>
+          <div class="typing-content">
+            <span class="typing-label" data-fa="در حال پردازش" data-en="Thinking">در حال پردازش</span>
+            <div class="typing-dots"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="composer-area">
+        <div class="composer-wrap">
+          <div class="attachment-preview hidden" id="attachmentPreview"></div>
+
+          <div class="composer-box">
+            <textarea
+              id="messageInput"
+              rows="1"
+              maxlength="30000"
+              data-placeholder-fa="هر چیزی که در ذهن داری بپرس..."
+              data-placeholder-en="Ask anything..."
+              placeholder="هر چیزی که در ذهن داری بپرس..."
+              aria-label="پیام شما"
+            ></textarea>
+
+            <div class="composer-toolbar">
+              <div class="composer-tools">
+                <button class="tool-btn" id="attachButton" aria-label="افزودن فایل">
+                  <span>＋</span>
+                  <span class="tool-text" data-fa="فایل" data-en="File">فایل</span>
+                </button>
+                <button class="tool-btn" id="voiceButton" aria-label="ورودی صوتی">
+                  <span>♩</span>
+                  <span class="tool-text" data-fa="گفتار" data-en="Voice">گفتار</span>
+                </button>
+                <input type="file" id="fileInput" hidden multiple accept="image/*,.txt,.md,.pdf,.json,.csv,.html,.css,.js,.py,.doc,.docx,.xlsx">
+              </div>
+
+              <div class="composer-right">
+                <span class="composer-hint" data-fa="Enter برای ارسال" data-en="Enter to send">Enter برای ارسال</span>
+                <button class="send-button" id="sendButton" aria-label="ارسال پیام">
+                  <span>↑</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="composer-disclaimer" data-fa="Berost AI ممکن است اشتباه کند؛ اطلاعات مهم را بررسی کن." data-en="Berost AI can make mistakes. Verify important information.">
+            Berost AI ممکن است اشتباه کند؛ اطلاعات مهم را بررسی کن.
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <div class="modal-overlay hidden" id="nameModal">
+    <div class="modal-card">
+      <div class="modal-logo">B<span>.</span></div>
+      <h2 data-fa="به برست خوش آمدی" data-en="Welcome to Berost">به برست خوش آمدی</h2>
+      <p data-fa="برای شروع، دوست داری با چه نامی صدایت کنیم؟" data-en="What should we call you?">برای شروع، دوست داری با چه نامی صدایت کنیم؟</p>
+      <form id="nameForm">
+        <input id="nameInput" maxlength="40" autocomplete="nickname" required placeholder="نام شما">
+        <button type="submit" class="modal-submit" data-fa="شروع گفتگو" data-en="Start chatting">شروع گفتگو</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
